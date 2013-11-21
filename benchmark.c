@@ -27,9 +27,6 @@ int reference(float* in, float* out, int data_size_X, int data_size_Y,
 int conv2D(float* in, float* out, int data_size_X, int data_size_Y,
                     float* kernel, int kernel_x, int kernel_y);
 
-/*
-The normalize assumes that the kernel is a 3 by 3 kernel.
-*/
 void normalize( float * kernel ) {
   int sum = 0;
   int total = kernel_x * kernel_y;
@@ -147,7 +144,7 @@ int main( int argc, char ** argv ) {
           seconds = (end.tv_sec - start.tv_sec) + 1.0e-6 * (end.tv_usec - start.tv_usec);
  
         /* compute Gflop/s rate */
-          Gflop_s = 2e-9 * n_iterations * 2 * x * y * 9 / seconds;
+          Gflop_s = 2e-9 * n_iterations * 2 * x * y * kernel_x * kernel_y / seconds;
         }
         printf( "Image Dimemsions: x = %d, y = %d \t Kernel Dimensions: x = %d, y = %d \t Performance: %g Gflop/s\n", x, y, kernel_x, kernel_y, Gflop_s );
         total_Gflop_s += Gflop_s;

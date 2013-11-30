@@ -157,7 +157,7 @@ int conv2D(float* in, float* out, int data_size_X, int data_size_Y,
             for(i = -kern_cent_X; i <= kern_cent_X; i++){ // inner loop : all kernel elements
                 for(j = -kern_cent_Y; j <= kern_cent_Y; j++){
             
-                    product_float = local_kern[(kern_cent_X - i) + (kern_cent_Y-j)*kernel_x] * padded_in[(a+i+padding_x)+(b+j+padding_y)*(data_size_X+2*padding_y)];
+                    product_float = local_kern[(kern_cent_X - i) + (kern_cent_Y-j)*kernel_x] * padded_in[(a+i+padding_x)+(b+j+padding_y)*(data_size_X+2*padding_x)];
                     output_float += product_float;
                 }
             }

@@ -6,10 +6,14 @@
 #include <sys/time.h>
 
 // If you want to modify the kernel, you can do it here! Don't worry about normalizing it, it will be done for you automatically.
-float kernel[] = { 0, -1, 0, 
-                   -1, 4, -1, 
-                   0, -1, 0 };
-int kernel_x = 3, kernel_y = 3;
+float kernel[] = { 0, -1, 0, 2, 3, 4, 5, 
+                   0, -1, 0, 3, 5, 3, 2,
+                   -1, 4, -1, 3, 5, 6, 7, 
+                   -1, 4, -1, 3, 5, 6, 7, 
+                   -1, 4, -1, 3, 5, 6, 7, 
+                   -1, 4, -1, 3, 5, 6, 7, 
+                   -1, 4, -1, 3, 5, 6, 7 }; 
+int kernel_x = 7, kernel_y = 7;
 
 // Range of the values to be tested.
 int minimum = 400, maximum = 1201, step = 200;
